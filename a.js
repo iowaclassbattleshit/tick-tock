@@ -1,3 +1,89 @@
+const years = [
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020"
+]
+
+const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC"
+]
+
+const days = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31"
+]
+
+function create(tag, array) {
+    const ring = document.getElementById(tag);
+    if (!ring) {
+        return;
+    }
+
+    const header = ring.getElementsByTagName("h2")[0];
+    if (!header) {
+        return;
+    }
+
+    for (let i = 1; i < array.length + 1; i++) {
+        const span = document.createElement("span");
+        span.classList.add(`btn${i}`);
+        span.innerText = array[i - 1];
+
+        header.appendChild(span);
+    }
+}
+
 function getDateObject() {
     const date = new Date();
     return {
@@ -38,18 +124,21 @@ function rot(tag, pos) {
 
 (function init() {
     setTimeout(() => {
+        create("r3", years);
         $(".year-text").fadeTo(500, 1, function () {
             rot("r3", 71);
         });
     }, 500);
 
     setTimeout(() => {
+        create("r2", months);
         $(".month-text").fadeTo(500, 1, function () {
             rotate(2, 12, "#r2");
         });
     }, 1000);
 
     setTimeout(() => {
+        create("r1", days);
         $(".day-text").fadeTo(500, 1, function () {
             rotate(23, 31, "#r1");
         });
