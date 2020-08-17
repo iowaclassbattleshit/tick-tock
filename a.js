@@ -21,10 +21,25 @@ function rotate(input, sections, ring) {
     });
 }
 
+function rot(tag, pos) {
+    const objects = document.getElementById(tag);
+    const content = objects.getElementsByTagName("h2");
+    const children = content[0].children;
+    
+    const deg = 360 / (pos / children.length);
+
+    $(`#${tag}`).css({
+        "-webkit-transform": "rotate(" + deg + "deg)",
+        "-moz-transform": "rotate(" + deg + "deg)",
+        "-ms-transform": "rotate(" + deg + "deg)",
+        "transform": "rotate(" + deg + "deg)"
+    });
+}
+
 (function init() {
     setTimeout(() => {
         $(".year-text").fadeTo(500, 1, function () {
-            rotate(2019, 14, "#r3");
+            rot("r3", 71);
         });
     }, 500);
 
