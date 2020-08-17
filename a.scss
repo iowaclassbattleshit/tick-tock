@@ -1,0 +1,185 @@
+// VARIABLES
+$background-grey: #292929;
+$ring-back: #FFFFFF;
+$ring-preview-characters: 6;
+$h1-size: 25px;
+$h2-size: 12px;
+
+// MIXINS
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+@mixin absolute($args...) {
+	@include position(absolute, $args...);
+}
+
+@mixin relative($args...) {
+	@include position(relative, $args...);
+}
+
+@mixin fixed($args...) {
+	@include position(fixed, $args...);
+}
+
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin transition($args...) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+@mixin transition-delay($delay) {
+	-webkit-transition-delay: $delay;
+	-moz-transition-delay: $delay;
+	-ms-transition-delay: $delay;
+	-o-transition-delay: $delay;
+	transition-delay: $delay;
+}
+
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin transform-origin ($origin) {
+	moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+@mixin bend($num: 100, $angle-span: 180deg) {
+	$angle-per-char: $angle-span / $num;
+	@for $i from 1 through $num {
+		.btn#{$i} {
+            @include transform(rotate($angle-per-char * $i));
+            display: flex;
+            justify-content: center;
+	    }
+	}
+}
+
+// PLACEHOLDERS
+%center {
+	@include absolute($top: 50%, $left: 50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+%center-inside {
+	@include relative($top: 50%, $left: 50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+%ring-text {
+	text-align: center;
+	@include transform-origin(center center);
+}
+
+// TYPICAL ELEMENTS
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background: $background-grey;
+	border: 0;
+	font-family: 'Roboto Mono', monospace;
+	height: 100%;
+	margin: 0px;
+	width: 100%;
+}
+
+h2 {
+	color: #555;
+	font-size: 15px;	
+}
+
+.day-dial {
+	@extend %center;
+	@include size(450px);
+    @include transition(all .5s);
+    
+    .day-text{
+        @include opacity(0);
+        @include bend($num: 31, $angle-span: 360deg);
+        
+        span {
+            @extend %ring-text;
+            @include absolute($top: calc(-25% + 55px), $left: calc(50% - 6px));
+            height: 432px;
+            width: $h2-size;
+        }
+    }
+}
+
+.month-dial {
+	@extend %center;
+	@include size(550px);
+    @include transition(all .5s);	
+    
+    .month-text {
+        @include opacity(0);
+        @include bend($num: 12, $angle-span: 360deg);
+        
+        span {
+            @extend %ring-text;
+            @include absolute($top: calc(-25% + 80px), $left: calc(50% - 6px));
+            height: 532px;
+            width: $h2-size;
+        }
+    }
+}
+
+.year-dial {
+	@extend %center;
+	@include size(650px);
+    @include transition(all .5s);
+    
+    .year-text {
+        @include opacity(0);
+        @include bend($num: 14, $angle-span: 360deg);
+        
+        span {
+            @extend %ring-text;
+            @include absolute($top: calc(-25% + 105px), $left: calc(50% - 6px));
+            height: 632px;
+            width: $h2-size;
+        }
+    }
+}
+
+.ring-back {
+	@include opacity(.1);
+	@include size(100%, 100%);
+}
+
+.ring {
+	@include relative($top: -100%);
+	@include size(100%, 100%);
+	@include transition(all .5s);
+	border: solid 45px #202020;
+	border-radius: 50%;
+    border-bottom-color: transparent;
+}
