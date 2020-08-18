@@ -50,20 +50,20 @@ function removeAvatarState(tag, pos) {
 }
 
 function addAvatarState(tag, pos) {
-    console.log(tag, pos);
     getBtn(tag, pos).classList.add("glow");
 }
 
 function rotate(tag, pos, arrayLength) {
+    console.log(tag, pos, arrayLength);
     let deg = 0;
     const lastPos = posMap[tag] || 0;
 
     if (pos > lastPos) {
-        deg = (360 / arrayLength) * (pos - lastPos);
+        deg = 360 - (360 / arrayLength) * (pos - lastPos);
     } else if (pos < lastPos) {
-        deg = (360 / arrayLength) * (lastPos - pos);
+        deg = 360 - (360 / arrayLength) * (lastPos - pos);
     } else if (pos === lastPos) {
-        deg = (360 / arrayLength) * pos;
+        deg = 360 - (360 / arrayLength) * pos;
     }
 
     posMap[tag] = pos;
@@ -103,10 +103,4 @@ function rotate(tag, pos, arrayLength) {
             rotate("r1", getPos(date.day, days), days.length);
         });
     }, 1500);
-
-    // setTimeout(() => {
-    //     rotate("r3", getPos(2021, years), years.length);
-    //     rotate("r2", getPos(date.month, months), months.length);
-    //     rotate("r1", getPos(date.day, days), days.length);
-    // }, 10000);
 })()
