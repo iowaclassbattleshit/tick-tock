@@ -32,10 +32,9 @@ function getCurrentDateObject() {
 }
 
 function getPos(value, array) {
-    array = array.reverse();
     for (let i = 0; i < array.length + 1; i++) {
         if (value === array[i]) {
-            return i;
+            return i + 1;
         }
     }
     return 0;
@@ -51,6 +50,7 @@ function removeAvatarState(tag, pos) {
 }
 
 function addAvatarState(tag, pos) {
+    console.log(tag, pos);
     getBtn(tag, pos).classList.add("glow");
 }
 
