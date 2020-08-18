@@ -54,16 +54,15 @@ function addAvatarState(tag, pos) {
 }
 
 function rotate(tag, pos, arrayLength) {
-    console.log(tag, pos, arrayLength);
     let deg = 0;
     const lastPos = posMap[tag] || 0;
 
     if (pos > lastPos) {
         deg = 360 - (360 / arrayLength) * (pos - lastPos);
     } else if (pos < lastPos) {
-        deg = 360 - (360 / arrayLength) * (lastPos - pos);
+        deg = -(360 / arrayLength) * (lastPos - pos);
     } else if (pos === lastPos) {
-        deg = 360 - (360 / arrayLength) * pos;
+        return;
     }
 
     posMap[tag] = pos;
@@ -114,14 +113,14 @@ function rotate(tag, pos, arrayLength) {
     setTimeout(() => {
         create("r2", months);
         $(".month-text").fadeTo(500, 1, function () {
-            rotate("r2", getPos("MAY", months), months.length);
+            rotate("r2", getPos("MAR", months), months.length);
         });
     }, 8500);
 
     setTimeout(() => {
         create("r1", days);
         $(".day-text").fadeTo(500, 1, function () {
-            rotate("r1", getPos(22, days), days.length);
+            rotate("r1", getPos(18, days), days.length);
         });
     }, 9000);
 })()
