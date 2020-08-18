@@ -1,18 +1,19 @@
 const years = [
-    "2007",
-    "2008",
-    "2009",
-    "2010",
-    "2011",
-    "2012",
-    "2013",
-    "2014",
-    "2015",
-    "2016",
-    "2017",
-    "2018",
-    "2019",
-    "2020"
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021
 ]
 
 const months = [
@@ -64,6 +65,10 @@ const days = [
     "31"
 ]
 
+const posMap = {
+
+}
+
 function create(tag, array) {
     const ring = document.getElementById(tag);
     if (!ring) {
@@ -84,63 +89,74 @@ function create(tag, array) {
     }
 }
 
-function getDateObject() {
+function getCurrentDateObject() {
     const date = new Date();
     return {
         year: date.getFullYear(),
-        month: date.getMonth() + 1,
+        month: months[date.getMonth()],
         day: date.getDate()
     }
 }
 
-function rotate(input, sections, ring) {
-    let range = 360;
-    var sectionWidth = range / sections;
-    var initialRotation = sectionWidth / 2;
-    var rotateAmount = initialRotation - sectionWidth * (input - 1);
-
-    $(ring).css({
-        "-webkit-transform": "rotate(" + rotateAmount + "deg)",
-        "-moz-transform": "rotate(" + rotateAmount + "deg)",
-        "-ms-transform": "rotate(" + rotateAmount + "deg)",
-        "transform": "rotate(" + rotateAmount + "deg)"
-    });
+function getPos(value, array) {
+    array = array.reverse();
+    for (let i = 0; i < array.length + 1; i++) {
+        if (value === array[i]) {
+            return i;
+        }
+    }
+    return 0;
 }
 
-function rot(tag, pos) {
-    const objects = document.getElementById(tag);
-    const content = objects.getElementsByTagName("h2");
-    const children = content[0].children;
-    
-    const deg = 360 / (pos / children.length);
+function rotate(tag, pos, arrayLength) {
+    let deg = 0;
+    const lastPos = posMap[tag] || 0;
+
+    if (pos > lastPos) {
+        console.log(pos, lastPos);
+        deg = (360 / arrayLength) * (pos - lastPos);
+    } else if (pos < lastPos) {
+        deg = (360 / arrayLength) * (lastPos - pos);
+    } else if (pos === lastPos) {
+        deg = (360 / arrayLength) * pos;
+    }
+
+    posMap[tag] = pos;
 
     $(`#${tag}`).css({
-        "-webkit-transform": "rotate(" + deg + "deg)",
-        "-moz-transform": "rotate(" + deg + "deg)",
-        "-ms-transform": "rotate(" + deg + "deg)",
-        "transform": "rotate(" + deg + "deg)"
+        "-webkit-transform": `rotate(${deg}deg)`,
+        "-moz-transform": `rotate(${deg}deg)`,
+        "-ms-transform": `rotate(${deg}deg)`,
+        "transform": `rotate(${deg}deg)`
     });
 }
 
 (function init() {
+    const date = getCurrentDateObject();
     setTimeout(() => {
         create("r3", years);
         $(".year-text").fadeTo(500, 1, function () {
-            rot("r3", 71);
+            rotate("r3", getPos(date.year, years), years.length);
         });
     }, 500);
 
     setTimeout(() => {
         create("r2", months);
         $(".month-text").fadeTo(500, 1, function () {
-            rotate(2, 12, "#r2");
+            rotate("r2", getPos(date.month, months), months.length);
         });
     }, 1000);
 
     setTimeout(() => {
         create("r1", days);
         $(".day-text").fadeTo(500, 1, function () {
-            rotate(23, 31, "#r1");
+            rotate("r1", getPos(date.day, days), days.length);
         });
     }, 1500);
+
+    setTimeout(() => {
+        rotate("r3", getPos(2021, years), years.length);
+        rotate("r2", getPos(date.month, months), months.length);
+        rotate("r1", getPos(date.day, days), days.length);
+    }, 10000);
 })()

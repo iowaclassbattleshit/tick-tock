@@ -111,75 +111,84 @@ body {
 	width: 100%;
 }
 
-h2 {
-	color: #555;
-	font-size: 15px;	
-}
+.battle-wheel {
+	h2 {
+		color: #555;
+		font-size: 15px;
+	}
+	
+	.day-dial {
+		z-index: 4000;
+		@extend %center;
+		@include size(450px);
+		
+		.day-text{
+			@include opacity(0);
+			@include bend($num: 31, $angle-span: 360deg);
+			
+			span {
+				@extend %ring-text;
+				@include absolute($top: calc(-25% + 55px), $left: calc(50% - 6px));
+				height: 432px;
+				width: $h2-size;
+			}
+		}
+	}
+	
+	.month-dial {
+		z-index: 3000;
+		@extend %center;
+		@include size(550px);
+		
+		.month-text {
+			@include opacity(0);
+			@include bend($num: 12, $angle-span: 360deg);
+			
+			span {
+				@extend %ring-text;
+				@include absolute($top: calc(-25% + 80px), $left: calc(50% - 6px));
+				height: 532px;
+				width: $h2-size;
+			}
+		}
+	}
+	
+	.year-dial {
+		z-index: 2000;
+		@extend %center;
+		@include size(650px);
+		
+		.year-text {
+			@include opacity(0);
+			@include bend($num: 15, $angle-span: 360deg);
+			
+			span {
+				@extend %ring-text;
+				@include absolute($top: calc(-25% + 105px), $left: calc(50% - 6px));
+				height: 632px;
+				width: $h2-size;
+			}
+		}
+	}
+	
+	.ring-back {
+		@include opacity(.1);
+		@include size(100%, 100%);
+	}
+	
+	.ring {
+		@include relative($top: -100%);
+		@include size(100%, 100%);
+		@include transition(all 5s);
+		border: solid 45px #202020;
+		border-radius: 50%;
+		z-index: 9999;
+		&:hover {
+			display: none;
+		}
+	}
 
-.day-dial {
-	@extend %center;
-	@include size(450px);
-    @include transition(all .5s);
-    
-    .day-text{
-        @include opacity(0);
-        @include bend($num: 31, $angle-span: 360deg);
-        
-        span {
-            @extend %ring-text;
-            @include absolute($top: calc(-25% + 55px), $left: calc(50% - 6px));
-            height: 432px;
-            width: $h2-size;
-        }
-    }
-}
-
-.month-dial {
-	@extend %center;
-	@include size(550px);
-    @include transition(all .5s);	
-    
-    .month-text {
-        @include opacity(0);
-        @include bend($num: 12, $angle-span: 360deg);
-        
-        span {
-            @extend %ring-text;
-            @include absolute($top: calc(-25% + 80px), $left: calc(50% - 6px));
-            height: 532px;
-            width: $h2-size;
-        }
-    }
-}
-
-.year-dial {
-	@extend %center;
-	@include size(650px);
-    @include transition(all .5s);
-    
-    .year-text {
-        @include opacity(0);
-        @include bend($num: 14, $angle-span: 360deg);
-        
-        span {
-            @extend %ring-text;
-            @include absolute($top: calc(-25% + 105px), $left: calc(50% - 6px));
-            height: 632px;
-            width: $h2-size;
-        }
-    }
-}
-
-.ring-back {
-	@include opacity(.1);
-	@include size(100%, 100%);
-}
-
-.ring {
-	@include relative($top: -100%);
-	@include size(100%, 100%);
-	@include transition(all .5s);
-	border: solid 45px #202020;
-	border-radius: 50%;
-    border-bottom-color: transparent;
+	#r1:hover, #r2:hover, #r3:hover {
+		display: none;
+	}
 }
