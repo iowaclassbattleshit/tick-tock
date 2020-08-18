@@ -47,9 +47,7 @@ function getBtn(tag, pos) {
 }
 
 function removeAvatarState(tag, pos) {
-    console.log(getBtn(tag, pos).classList);
     getBtn(tag, pos).classList.remove("glow");
-    console.log(getBtn(tag, pos).classList);
 }
 
 function addAvatarState(tag, pos) {
@@ -106,9 +104,9 @@ function rotate(tag, pos, arrayLength) {
         });
     }, 1500);
 
-    setTimeout(() => {
-        rotate("r3", getPos(2021, years), years.length);
-        rotate("r2", getPos(date.month, months), months.length);
-        rotate("r1", getPos(date.day, days), days.length);
-    }, 10000);
+    // setTimeout(() => {
+    //     rotate("r3", getPos(2021, years), years.length);
+    //     rotate("r2", getPos(date.month, months), months.length);
+    //     rotate("r1", getPos(date.day, days), days.length);
+    // }, 10000);
 })()
