@@ -28,6 +28,7 @@ body {
 .battle-wheel h2 {
   transition: all 1s;
   color: #555;
+  text-shadow: 0;
   font-size: 15px;
 }
 .battle-wheel h2 .glow {

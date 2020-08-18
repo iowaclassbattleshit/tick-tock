@@ -103,4 +103,25 @@ function rotate(tag, pos, arrayLength) {
             rotate("r1", getPos(date.day, days), days.length);
         });
     }, 1500);
+
+    setTimeout(() => {
+        create("r3", years);
+        $(".year-text").fadeTo(500, 1, function () {
+            rotate("r3", getPos(2010, years), years.length);
+        });
+    }, 8000);
+
+    setTimeout(() => {
+        create("r2", months);
+        $(".month-text").fadeTo(500, 1, function () {
+            rotate("r2", getPos("MAY", months), months.length);
+        });
+    }, 8500);
+
+    setTimeout(() => {
+        create("r1", days);
+        $(".day-text").fadeTo(500, 1, function () {
+            rotate("r1", getPos(22, days), days.length);
+        });
+    }, 9000);
 })()

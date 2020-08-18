@@ -115,6 +115,7 @@ body {
 	h2 {
 		@include transition(all 1s);
 		color: #555;
+		text-shadow: 0;
 		font-size: 15px;
 	}
 
