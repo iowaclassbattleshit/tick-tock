@@ -1,0 +1,385 @@
+.battle-wheel .year-dial, .battle-wheel .month-dial, .battle-wheel .day-dial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.battle-wheel .year-dial .year-text span, .battle-wheel .month-dial .month-text span, .battle-wheel .day-dial .day-text span {
+  text-align: center;
+  moz-transform-origin: center center;
+  transform-origin: center center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #292929;
+  border: 0;
+  font-family: "Roboto Mono", monospace;
+  height: 100%;
+  margin: 0px;
+  width: 100%;
+}
+
+.battle-wheel h2 {
+  color: #555;
+  font-size: 15px;
+}
+.battle-wheel .day-dial {
+  z-index: 4000;
+  width: 450px;
+  height: 450px;
+}
+.battle-wheel .day-dial .day-text {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.battle-wheel .day-dial .day-text .btn1 {
+  transform: rotate(11.6129032258deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn2 {
+  transform: rotate(23.2258064516deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn3 {
+  transform: rotate(34.8387096774deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn4 {
+  transform: rotate(46.4516129032deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn5 {
+  transform: rotate(58.064516129deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn6 {
+  transform: rotate(69.6774193548deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn7 {
+  transform: rotate(81.2903225806deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn8 {
+  transform: rotate(92.9032258065deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn9 {
+  transform: rotate(104.5161290323deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn10 {
+  transform: rotate(116.1290322581deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn11 {
+  transform: rotate(127.7419354839deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn12 {
+  transform: rotate(139.3548387097deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn13 {
+  transform: rotate(150.9677419355deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn14 {
+  transform: rotate(162.5806451613deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn15 {
+  transform: rotate(174.1935483871deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn16 {
+  transform: rotate(185.8064516129deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn17 {
+  transform: rotate(197.4193548387deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn18 {
+  transform: rotate(209.0322580645deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn19 {
+  transform: rotate(220.6451612903deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn20 {
+  transform: rotate(232.2580645161deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn21 {
+  transform: rotate(243.8709677419deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn22 {
+  transform: rotate(255.4838709677deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn23 {
+  transform: rotate(267.0967741935deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn24 {
+  transform: rotate(278.7096774194deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn25 {
+  transform: rotate(290.3225806452deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn26 {
+  transform: rotate(301.935483871deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn27 {
+  transform: rotate(313.5483870968deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn28 {
+  transform: rotate(325.1612903226deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn29 {
+  transform: rotate(336.7741935484deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn30 {
+  transform: rotate(348.3870967742deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text .btn31 {
+  transform: rotate(360deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .day-dial .day-text span {
+  position: absolute;
+  top: calc(-25% + 55px);
+  left: calc(50% - 6px);
+  height: 432px;
+  width: 12px;
+}
+.battle-wheel .month-dial {
+  z-index: 3000;
+  width: 550px;
+  height: 550px;
+}
+.battle-wheel .month-dial .month-text {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.battle-wheel .month-dial .month-text .btn1 {
+  transform: rotate(30deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn2 {
+  transform: rotate(60deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn3 {
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn4 {
+  transform: rotate(120deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn5 {
+  transform: rotate(150deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn6 {
+  transform: rotate(180deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn7 {
+  transform: rotate(210deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn8 {
+  transform: rotate(240deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn9 {
+  transform: rotate(270deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn10 {
+  transform: rotate(300deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn11 {
+  transform: rotate(330deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text .btn12 {
+  transform: rotate(360deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .month-dial .month-text span {
+  position: absolute;
+  top: calc(-25% + 80px);
+  left: calc(50% - 6px);
+  height: 532px;
+  width: 12px;
+}
+.battle-wheel .year-dial {
+  z-index: 2000;
+  width: 650px;
+  height: 650px;
+}
+.battle-wheel .year-dial .year-text {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.battle-wheel .year-dial .year-text .btn1 {
+  transform: rotate(24deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn2 {
+  transform: rotate(48deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn3 {
+  transform: rotate(72deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn4 {
+  transform: rotate(96deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn5 {
+  transform: rotate(120deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn6 {
+  transform: rotate(144deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn7 {
+  transform: rotate(168deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn8 {
+  transform: rotate(192deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn9 {
+  transform: rotate(216deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn10 {
+  transform: rotate(240deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn11 {
+  transform: rotate(264deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn12 {
+  transform: rotate(288deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn13 {
+  transform: rotate(312deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn14 {
+  transform: rotate(336deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text .btn15 {
+  transform: rotate(360deg);
+  display: flex;
+  justify-content: center;
+}
+.battle-wheel .year-dial .year-text span {
+  position: absolute;
+  top: calc(-25% + 105px);
+  left: calc(50% - 6px);
+  height: 632px;
+  width: 12px;
+}
+.battle-wheel .ring-back {
+  opacity: 0.1;
+  filter: alpha(opacity=10);
+  width: 100%;
+  height: 100%;
+}
+.battle-wheel .ring {
+  position: relative;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  transition: all 5s;
+  border: solid 45px #202020;
+  border-radius: 50%;
+  z-index: 9999;
+}
