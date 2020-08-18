@@ -132,7 +132,14 @@ function rotate(tag, pos, arrayLength) {
     });
 }
 
+function addListeners() {
+    window.onscroll = function(e) {
+        console.log("kjddj")
+    }
+}
+
 (function init() {
+    addListeners();
     const date = getCurrentDateObject();
     setTimeout(() => {
         create("r3", years);
