@@ -1,70 +1,3 @@
-const years = [
-    2007,
-    2008,
-    2009,
-    2010,
-    2011,
-    2012,
-    2013,
-    2014,
-    2015,
-    2016,
-    2017,
-    2018,
-    2019,
-    2020,
-    2021
-]
-
-const months = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC"
-]
-
-const days = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31
-]
-
 const posMap = {
 
 }
@@ -108,17 +41,30 @@ function getPos(value, array) {
     return 0;
 }
 
+function getBtn(tag, pos) {
+    return document.getElementById(tag)
+        .getElementsByClassName(`btn${pos}`)[0];
+}
+
+function removeAvatarState(tag, pos) {
+    console.log(getBtn(tag, pos).classList);
+    getBtn(tag, pos).classList.remove("glow");
+    console.log(getBtn(tag, pos).classList);
+}
+
+function addAvatarState(tag, pos) {
+    getBtn(tag, pos).classList.add("glow");
+}
+
 function rotate(tag, pos, arrayLength) {
     let deg = 0;
     const lastPos = posMap[tag] || 0;
 
     if (pos > lastPos) {
-        console.log(pos, lastPos);
         deg = (360 / arrayLength) * (pos - lastPos);
     } else if (pos < lastPos) {
         deg = (360 / arrayLength) * (lastPos - pos);
     } else if (pos === lastPos) {
-        console.log("hhh", pos, lastPos)
         deg = (360 / arrayLength) * pos;
     }
 
@@ -130,16 +76,14 @@ function rotate(tag, pos, arrayLength) {
         "-ms-transform": `rotate(${deg}deg)`,
         "transform": `rotate(${deg}deg)`
     });
-}
 
-function addListeners() {
-    window.onscroll = function(e) {
-        console.log("kjddj")
-    }
+    removeAvatarState(tag, posMap[tag]);
+    setTimeout(() => {
+        addAvatarState(tag, pos);
+    }, 5100);
 }
 
 (function init() {
-    addListeners();
     const date = getCurrentDateObject();
     setTimeout(() => {
         create("r3", years);

@@ -26,8 +26,14 @@ body {
 }
 
 .battle-wheel h2 {
+  transition: all 1s;
   color: #555;
   font-size: 15px;
+}
+.battle-wheel h2 .glow {
+  transition: all 1s;
+  color: white;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #54486D, 0 0 40px #54486D, 0 0 50px #54486D, 0 0 60px #54486D, 0 0 70px #54486D;
 }
 .battle-wheel .day-dial {
   z-index: 4000;
@@ -381,5 +387,4 @@ body {
   transition: all 5s;
   border: solid 45px #202020;
   border-radius: 50%;
-  z-index: 9999;
 }
